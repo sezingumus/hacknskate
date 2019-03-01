@@ -1,0 +1,49 @@
+{% extends "html/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+ <head>
+  {% include 'Sniptes/css.html' %}
+ </head>
+
+ <body>
+
+   <h3>Results of {{ q }}</h3>
+   {% if blog_list %}
+      {% for blog in blog_list %}
+       <hr>
+       <div class="row">
+       <div class="col">
+           <img src="{{ blog.image.url }}">
+       </div>
+       <div class="col" style="padding-top: 5%">
+           <h1>{{ blog.title }}</h1>
+           <h2>Category:
+            {% if blog.blog_category == 'I'%}
+               Computer Science
+             {% elif blog.blog_category == 'C'%}
+               Cyber Security
+             {% elif blog.blog_category == 'S'%}
+               Skating
+             {% elif blog.blog_category == 'O'%}
+               Other
+            {% endif %}
+            </h2>
+            <h2>Author:{{ blog.author }}</h2>
+       </div>
+       </div>
+       <hr>
+   {% endfor %}
+
+   {% else %}
+       <h3>Nothing matched your search terms</h3>
+       <h3>To see all blogs please click <a href="/blogs/">here</a> </h3>
+   {% endif %}
+
+
+
+   {% include 'Sniptes/js.html' %}
+ </body>
+
+{% endblock %}

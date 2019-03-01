@@ -1,0 +1,32 @@
+{% extends "html/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<head>
+    {% include 'Sniptes/css.html' %}
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}"/>
+</head>
+
+<body>
+ <div class="main">
+     <div class="title">
+         <h1>If you have any questions, feedbacks or else,would like to hire me,contact me.Here are my contact informations.</h1>
+         <ul>
+             <li><h2>email:sezingumusatgmail.com</h2></li>
+         </ul>
+     </div>
+     <div class="social-media">
+         <h1>You can follow me on social media.</h1>
+         <ul>
+             {% include 'Sniptes/icons.html' %}
+         </ul>
+     </div>
+ </div>
+
+{% include 'Sniptes/js.html' %}
+</body>
+
+
+
+{% endblock %}

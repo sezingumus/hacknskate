@@ -1,0 +1,19 @@
+.blog {
+    margin-top: 3%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #66b3cc;
+    width: 80%;
+}
+
+.blog_thumbnail {
+    width: 200px;
+    length:200px;
+    object-fit: fill;
+}
+
+.button {
+    width: 120px;
+    height: 75px;
+
+}

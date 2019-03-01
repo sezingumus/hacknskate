@@ -1,0 +1,67 @@
+* {box-sizing: border-box;}
+
+body
+{
+    margin:0;
+}
+
+.big-pic {
+    background-color: black/*#cccccc*/;
+    height: 750px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-image: url("../images/ab.jpg");
+    opacity: 0.8;
+
+}
+
+
+.navbar.navbar-expand-lg.navbar-light.fixed-top,.dropdown-menu {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.4);
+}
+
+
+
+ .dropdown:hover .dropdown-menu{
+     display: block;
+}
+
+.dropdown-item:hover {
+    background-color: ghostwhite;
+}
+
+.glow {
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+    color:black;
+    position: absolute;
+    top:50%;
+
+}
+
+
+#h1-glow,#h2-glow,#h3-glow {
+  font-family: 'Charm', cursive;
+    font-weight:bold ;
+
+}
+
+@media only screen and (min-width: 768px) {
+  .dropdown:hover .dropdown-menu{
+     display:block;
+  }
+}
+
+@-webkit-keyframes glow {
+    from {
+             text-shadow: 0 0 10px #fff, 0 0 20px #cccccc, 0 0 30px gainsboro, 0 0 40px #8cbae6, 0 0 50px gainsboro, 0 0 60px  aquamarine, 0 0 70px aquamarine;
+           }
+
+    to  {
+             text-shadow: 0 0 20px #fff, 0 0 30px #cccccc, 0 0 40px gainsboro, 0 0 50px antiquewhite, 0 0 60px antiquewhite, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+          }
+}

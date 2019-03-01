@@ -1,0 +1,124 @@
+{% extends "html/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<body>
+ <head>
+      {% include 'Sniptes/css.html' %}
+
+      <link rel="stylesheet" href="{% static 'css/blog_list.css' %}"/>
+  </head>
+
+ <div class="container">
+   <div class="jumbotron" style="background-color: #e06995;margin-top: 1%" >
+       <h1>Blog List</h1>
+       <p>sdkfhskajdhgalşjglqjgsa</p>
+   </div>
+
+
+</div>
+
+ <div class="blog">
+
+ <h2> Category: Computer Science </h2><hr>
+   <div class="row">
+       {% for object in blog_list %}
+          {% if object.blog_category == 'I' %}
+                <div class="row">
+                <div class="col">
+                        <div class="col"><img class="blog_thumbnail" src="{{ object.image.url }}"></div>
+                        <div class="col">
+                            <h3> <a href="/blogs/{{ object.slug }}/"> {{ object.title }} </a>  </h3>
+                            <p>Author:{{ object.author }}</p>
+                        </div>
+                </div>
+                </div>
+
+          {% endif %}
+          <br>
+       {% endfor %}
+       <button class="button">See All</button>
+    <hr>
+   </div>
+
+ <hr>
+ <h2> Category: Cyber Security </h2><hr>
+   <div class="row">
+       {% for object in blog_list %}
+          {% if object.blog_category == 'C' %}
+                <div class="row">
+                <div class="col">
+                        <div class="col"><img class="blog_thumbnail" src="{{ object.image.url }}"></div>
+                        <div class="col">
+                            <h3> <a href="/blogs/{{ object.slug }}/"> {{ object.title }} </a>  </h3>
+                            <p>Author:{{ object.author }}</p>
+                        </div>
+                </div>
+                </div>
+
+          {% endif %}
+          <br>
+       {% endfor %}
+       <button class="button">See All</button>
+    <hr>
+   </div>
+
+ <hr>
+ <h2> Category: Skating </h2><hr>
+   <div class="row">
+       {% for object in blog_list %}
+          {% if object.blog_category == 'S' %}
+                <div class="row">
+                <div class="col">
+                        <div class="col"><img class="blog_thumbnail" src="{{ object.image.url }}"></div>
+                        <div class="col">
+                            <h3> <a href="/blogs/{{ object.slug }}/"> {{ object.title }} </a>  </h3>
+                            <p>Author:{{ object.author }}</p>
+                        </div>
+                </div>
+                </div>
+
+          {% endif %}
+          <br>
+       {% endfor %}
+       <button class="button">See All</button>
+    <hr>
+   </div>
+
+ <hr>
+ <h2> Category: Other </h2><hr>
+   <div class="row">
+       {% for object in blog_list %}
+          {% if object.blog_category == 'O' %}
+                <div class="row">
+                <div class="col">
+                        <div class="col"><img class="blog_thumbnail" src="{{ object.image.url }}"></div>
+                        <div class="col">
+                            <h3> <a href="/blogs/{{ object.slug }}/"> {{ object.title }} </a>  </h3>
+                            <p>Author:{{ object.author }}</p>
+                        </div>
+                </div>
+                </div>
+
+          {% endif %}
+          <br>
+       {% endfor %}
+       <button class="button">See All</button>
+    <hr>
+   </div>
+ <hr>
+
+
+
+
+
+
+ </div>
+
+
+{% include 'Sniptes/js.html' %}
+</body>
+
+
+{% endblock %}

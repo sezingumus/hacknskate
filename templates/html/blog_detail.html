@@ -1,0 +1,85 @@
+{% extends "html/base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+  <head>
+      {% include 'Sniptes/css.html' %}
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}"/>
+  </head>
+
+  <body>
+
+    <div class="main">
+      <div class="blog" style= "margin-top: 3%;
+                                margin-right: 10%;
+                                margin-left: 10%;
+                                width: 80%;
+                                ">
+       <h1> Author:{{ object.author }} </h1>
+       <h2> Created_Date: {{ object.published_date }}</h2>
+       <h2> {{ object.title }} </h2>
+       <p> Category : {% if blog.blog_category == 'I'%}
+                          Computer Science
+                      {% elif blog.blog_category == 'C'%}
+                          Cyber Security
+                      {% elif blog.blog_category == 'S'%}
+                          Skating
+                      {% elif blog.blog_category == 'O'%}
+                          Other
+                      {% endif %}
+       </p>
+       <p>  {{ object.text }}  </p>
+
+      </div>
+
+        <div class="form-container container" style="margin-top: 5%">
+            <h3>Leave a comment</h3>
+            <hr>
+            <form method="POST" action="" >
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-6">
+                         {{ form.name|as_crispy_field }}
+                    </div>
+                    <div class="col-6">
+                         {{ form.email|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                         {{ form.content|as_crispy_field }}
+                    </div>
+                </div>
+            <button type="submit" class="btn btn-success">Comment</button>
+            </form>
+
+        </div>
+
+
+       <div class="comments container" style="margin-top: 5%;">
+
+           <h2>Comments: {{ object.comments.count }}</h2>
+           <hr>
+
+           <div class="row">
+               <div class="col">
+                   {% for comments in object.comments.all %}
+                       {% if comments %}
+                           <p>Date: {{ comments.created_date }}</p>
+                           <h3>User:{{ comments.name }}</h3>
+                           <p>{{ comments.content }}</p>
+                       {% endif %}
+                   {% endfor %}
+               </div>
+           </div>
+       </div>
+    </div>
+
+    {% include 'Sniptes/js.html' %}
+  </body>
+
+
+
+{%endblock  %}

@@ -1,0 +1,199 @@
+{% extends "html/base.html" %}
+{% load staticfiles %}
+
+
+
+{% block content %}
+
+
+    <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      {% include 'Sniptes/css.html' %}
+      <link rel="stylesheet" href="{% static 'css/home.css' %}"/>
+
+    </head>
+
+    <body>
+
+     <div class="main">
+
+         <div class="description">
+
+          <center><h1 id="description_h1_id">Welcome to HacknSkate</h1></center>
+          <hr>
+          <p> Welcome to my website where I call "HacknSkate(Hack Then Skate)". Here, I am going to write blogs about (mostly) cyber security,skating sometimes may write other fields
+             like my experiences (erasmus) and places I visited, mythology. I havent decided yet.
+          </p>
+          <p> .....
+          </p>
+          <p>
+
+          </p>
+
+         </div>
+
+         <!--Carousel Wrapper-->
+         <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+              <!--Indicators-->
+              <ol class="carousel-indicators">
+                <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-2" data-slide-to="1"></li>
+                <li data-target="#carousel-example-2" data-slide-to="2"></li>
+              </ol>
+              <!--/.Indicators-->
+              <!--Slides-->
+              <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                  <div class="view">
+                    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide">
+                    <div class="mask rgba-black-light"></div>
+                  </div>
+                  <div class="carousel-caption">
+                    <h3 class="h3-responsive">Light mask</h3>
+                    <p>First text</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <!--Mask color-->
+                  <div class="view">
+                    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg" alt="Second slide">
+                    <div class="mask rgba-black-strong"></div>
+                  </div>
+                  <div class="carousel-caption">
+                    <h3 class="h3-responsive">Strong mask</h3>
+                    <p>Secondary text</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <!--Mask color-->
+                  <div class="view">
+                    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" alt="Third slide">
+                    <div class="mask rgba-black-slight"></div>
+                  </div>
+                  <div class="carousel-caption">
+                    <h3 class="h3-responsive">Slight mask</h3>
+                    <a href="/about">Third text</a>
+                  </div>
+                </div>
+              </div>
+              <!--/.Slides-->
+              <!--Controls-->
+              <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+              <!--/.Controls-->
+         </div>
+         <!--/.Carousel Wrapper-->
+
+         <!--Popular and Latest Blogs-->
+         <div class="container posts" style="margin-top:3%">
+             <div class="row">
+                <div class="col">
+                  <h2>Popular Posts</h2>
+                  <hr>
+                  <div class="row">
+                    <div class="col"> <img src="{% static 'images/serro.jpeg' %}"></div>
+                    <div class="col">
+                            <h3>Title</h3>
+                            <p>Category:Cyber Security</p>
+                            <p>Author:Sezin</p>
+                    </div>
+                    </div>
+                    <hr>
+                     <div class="row">
+                    <div class="col"> <img src="{% static 'images/serro.jpeg' %}"></div>
+                    <div class="col">
+                            <h3>Title</h3>
+                            <p>Category:Cyber Security</p>
+                            <p>Author:Sezin</p>
+                    </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                    <div class="col"> <img src="{% static 'images/serro.jpeg' %}"></div>
+                    <div class="col">
+                            <h3>Title</h3>
+                            <p>Category:Cyber Security</p>
+                            <p>Author:Sezin</p></div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                    <div class="col"> <img src="{% static 'images/serro.jpeg' %}"></div>
+                    <div class="col">
+                            <h3>Title</h3>
+                            <p>Category:Cyber Security</p>
+                            <p>Author:Sezin</p></div>
+                    </div>
+                    <hr>
+                </div>
+
+                <div class="col">
+                  <h2>Latest Posts</h2>
+                  <hr>
+                  <div class="row">
+                    <div class="col"> <img src="{% static 'images/serro.jpeg' %}"></div>
+                    <div class="col">
+                            <h3>Title</h3>
+                            <p>Category:Cyber Security</p>
+                            <p>Author:Sezin</p></div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                    <div class="col"> <img src="{% static 'images/serro.jpeg' %}"></div>
+                    <div class="col">
+                            <h3>Title</h3>
+                            <p>Category:Cyber Security</p>
+                            <p>Author:Sezin</p>
+                    </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                    <div class="col"> <img src="{% static 'images/serro.jpeg' %}"></div>
+                    <div class="col">
+                            <h3>Title</h3>
+                            <p>Category:Cyber Security</p>
+                            <p>Author:Sezin</p></div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                    <div class="col"> <img src="{% static 'images/serro.jpeg' %}"></div>
+                    <div class="col">
+                            <h3>Title</h3>
+                            <p>Category:Cyber Security</p>
+                            <p>Author:Sezin</p></div>
+                    </div>
+                    <hr>
+                </div>
+
+             </div>
+          <center>
+            <div class="see-all" style="margin-bottom: 5%;margin-top: 2%;">
+              <button type="button" class="btn btn-outline-dark" style="font-size:larger;">See all blogs </button>
+            </div>
+          </center>
+
+
+
+         </div>
+
+
+
+     </div>
+
+
+     <!--JS-->
+    {% include 'Sniptes/js.html' %}
+    </body>
+
+{% endblock %}

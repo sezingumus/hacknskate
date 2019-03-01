@@ -1,0 +1,41 @@
+{% load  staticfiles %}
+
+<head>{% include 'Sniptes/css.html' %}</head>
+
+
+
+<title>HacknSkate</title>
+
+<body>
+
+  <div class="big-pic">
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+       {% include 'Sniptes/nav.html'%}
+
+    </ul>
+    <form id="searchform" class="form-inline my-2 my-lg-0" action="/results/" method="get" accept-charset="utf-8" >
+      {% csrf_token %}
+      <input class="form-control mr-sm-2" id="search_input_id" type="search" placeholder="Search" aria-label="Search" name="q" style="font-size: 25px">
+      <button class="btn btn-outline-success my-2 my-sm-0" id="searchbox_id" type="submit" style="font-size: 25px">Search</button>
+    </form>
+  </div>
+</nav>
+
+  </div>
+
+  <script type="text/javascript" src="js/jquery-1.8.0.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+ {% include 'Sniptes/js.html' %}
+</body>
+
+
+
+{% block content %}{% endblock %}

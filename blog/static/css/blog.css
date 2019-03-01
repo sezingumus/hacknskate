@@ -1,0 +1,13 @@
+.big-pic {
+    background-image: url("../images/about-banner.jpg");
+    background-color: #c218ce;
+}
+
+
+.like {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 5px;
+    height:50px ;
+    width: 50px;
+}

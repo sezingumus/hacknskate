@@ -1,0 +1,114 @@
+.big-pic {
+    background-image: url("../images/blog-image1.jpg");
+}
+
+
+.main {
+
+}
+
+.description {
+    font-family: "Fira Sans Compressed ExtraLight";
+    font-weight: bold;
+    box-sizing: border-box;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+
+}
+
+
+
+#description_h1_id {
+    font-family: "Fira Sans Compressed ExtraLight";
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+
+.carousel {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 2%;
+    width: 60%;
+    height: 500px;
+
+}
+
+
+
+.d-block.w-100 {
+    object-fit: cover;
+    width: 100%;
+    height: 500px;
+    margin: 0;
+}
+
+
+
+.active {
+  background-color: #717171;
+}
+
+img {
+    width: 150px;
+    height:150px;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.blogs-post {
+    margin-top: 3%;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+
+}
+
+
+#popular-post #latest-post {
+    width: 50%;
+}
+
+p {
+    font-size: 20px;
+}
