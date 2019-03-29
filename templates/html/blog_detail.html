@@ -31,7 +31,7 @@
                       {% endif %}
        </p>
        <p>  {{ object.text }}  </p>
-
+         <!-- <embed src="{{ object.blog_pdf.url }}#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0&view=FitH,top" width="100%" height="1600px">!-->
       </div>
 
         <div class="form-container container" style="margin-top: 5%">
@@ -47,11 +47,21 @@
                          {{ form.email|as_crispy_field }}
                     </div>
                 </div>
-                <div class="row">
+                <br>
+                <div class="row"style="width: 100%">
                     <div class="col-12">
                          {{ form.content|as_crispy_field }}
                     </div>
                 </div>
+                <br>
+                <script src='https://www.google.com/recaptcha/api.js'></script>
+                <div class="g-recaptcha" data-sitekey="Your captcha site key"></div>
+                <br>
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
             <button type="submit" class="btn btn-success">Comment</button>
             </form>
 
@@ -61,15 +71,17 @@
        <div class="comments container" style="margin-top: 5%;">
 
            <h2>Comments: {{ object.comments.count }}</h2>
-           <hr>
+           <br>
 
            <div class="row">
                <div class="col">
                    {% for comments in object.comments.all %}
                        {% if comments %}
+                           <hr>
                            <p>Date: {{ comments.created_date }}</p>
                            <h3>User:{{ comments.name }}</h3>
                            <p>{{ comments.content }}</p>
+                           <hr>
                        {% endif %}
                    {% endfor %}
                </div>

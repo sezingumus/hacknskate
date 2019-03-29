@@ -1,23 +1,25 @@
-from datetime import timezone
+import json
+import urllib
+
 import datetime
-from functools import reduce
 
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, JsonResponse
-from django.template.backends import django
-from django.urls import reverse_lazy, reverse
+
+from django.contrib import messages
+
+
+from django.shortcuts import render
+
+from django.urls import reverse
 from django.views import View
-from django.views.generic import TemplateView, DetailView, CreateView, FormView
+from django.views.generic import DetailView, FormView
 from django.views.generic.detail import SingleObjectMixin
-from django.views.generic.edit import FormMixin
-from django.views.generic.list import MultipleObjectMixin
-from simple_search import SearchForm
 
+
+from SezinGumusBlog import settings
 from blog.forms import CommentForm
 from blog.models import Blog, Comment, Reference
 from django.db.models import Q
-import operator
+
 
 
 def blog_listview(request):
@@ -62,6 +64,7 @@ class CommentView(SingleObjectMixin, FormView):
     queryset = Comment.objects.all()
 
 
+
     def get_blog_id (self,slug):
         blog = Blog.objects.get(slug=slug)
         print(blog)
@@ -78,12 +81,43 @@ class CommentView(SingleObjectMixin, FormView):
         self.id       = self.get_blog_id(self.kwargs['slug'])
         return super().post(request, *args, **kwargs)
 
-    def form_valid(self, form):
+    def form_valid(self,form):
+
         comment = form.save(commit=False)
         comment.created_date = datetime.datetime.now()
-        comment.blog_id = self.id  #self.queryset.reverse()[0].blog.id
-        comment.save()
+        comment.blog_id = self.id  # self.queryset.reverse()[0].blog.id
+
+
+
+
+        ''' Begin reCAPTCHA validation '''
+        recaptcha_response = self.request.POST.get('g-recaptcha-response')
+        url = 'https://www.google.com/recaptcha/api/siteverify'
+        values = {
+            'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+            'response': recaptcha_response
+        }
+        data = urllib.parse.urlencode(values).encode()
+        req = urllib.request.Request(url, data=data)
+        response = urllib.request.urlopen(req)
+        result = json.loads(response.read().decode())
+        ''' End reCAPTCHA validation '''
+
+        if result['success']:
+            comment.save()
+            messages.success(self.request, 'New comment added with success!')
+
+
+        else:
+            messages.error(self.request, 'Invalid reCAPTCHA. Please try again.')
+            form = CommentForm()
+
+
         return super(CommentView, self).form_valid(form)
+
+
+
+
 
     def get_success_url(self):
         slug = self.queryset.reverse()[0].blog.slug

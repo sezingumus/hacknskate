@@ -25,6 +25,7 @@ class Blog(models.Model):
     category                = (('A', 'All'), ('C', 'CyberSecurity'), ('I', 'ComputerScience'), ('S', 'Skate'), ('O', 'Other'))
     blog_category           = models.CharField(max_length=1, choices=category, default='C')
     image                   = models.ImageField(upload_to='images/')
+    blog_pdf                = models.FileField(upload_to='blogs',null=True)
     slug                    = models.SlugField(blank=True, null=True)
 
     def publish(self):

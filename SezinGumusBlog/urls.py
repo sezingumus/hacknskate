@@ -14,11 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from SezinGumusBlog import settings
 from blog.views import blog_listview, BlogDetailView, blog_search_list_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,8 +28,8 @@ urlpatterns = [
     path('contact/', TemplateView.as_view(template_name='html/contact.html')),
     path('blogs/', blog_listview),
     path('blogs/<slug>/', BlogDetailView.as_view(), name='blog_detail'),
-    # path('comments',require_POST('''CommentView.as_view()'''),name='comment_view_url'),
     path('results/', blog_search_list_view),
+    path('captcha/',include('captcha.urls')),
 ]
 if settings.DEBUG:
         urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
