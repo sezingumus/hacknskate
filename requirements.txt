@@ -1,4 +1,4 @@
-Django==2.1.4
+Django==2.1.11
 django-bootstrap4==0.0.7
 django-crispy-forms==1.7.2
 django-simple-search==1.0.2
